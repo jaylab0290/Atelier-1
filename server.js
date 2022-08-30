@@ -7,7 +7,7 @@ const server = http.createServer((req, res) => {
     let reqInfo = { url: req.url, method: req.method, contentType: req.headers['content-type'] };
     res.writeHead(200, { "Content-Type": "application/json" });
     if (req.method == 'GET') {
-        res.end(JSON.stringify(reqInfo));
+        let stringifyJSONObj = JSON.stringify(reqInfo); // contenu de bosy est souvent référé avec payload
         res.end(stringifyJSONObj);
     } else {
         if (req.method == 'POST') {
