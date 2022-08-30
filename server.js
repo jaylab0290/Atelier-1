@@ -1,14 +1,14 @@
 // Mon premier server Http
 const http = require('http');
 const queryString = require('query-string');
+const { stringify } = require('querystring');
 const server = http.createServer((req, res) => {
     console.log(req.url);
-    console.log(req.url);
     let reqInfo = { url: req.url, method: req.method, contentType: req.headers['content-type'] };
-
     res.writeHead(200, { "Content-Type": "application/json" });
     if (req.method == 'GET') {
         res.end(JSON.stringify(reqInfo));
+        res.end(stringifyJSONObj);
     } else {
         if (req.method == 'POST') {
             let body = [];
